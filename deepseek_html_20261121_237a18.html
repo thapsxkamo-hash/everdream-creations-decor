@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>EverDream Creations & Decor — Premium Event Décor</title>
+  <meta name="description" content="EverDream Creations & Decor – luxury event styling, matric farewell décor, and special occasion designs in Gqeberha.">
+  <!-- Elegant typography: Cormorant Garamond (serif) + Inter (sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fbf7f0; /* warm ivory */
+      color: #2c2c2c; /* deep charcoal */
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    /* ----- PALETTE VARIABLES ----- */
+    :root {
+      --ivory: #fbf7f0;
+      --ivory-light: #fdfbf7;
+      --champagne: #e8d9c5;
+      --gold: #b89b7b;
+      --gold-soft: #c9b39b;
+      --charcoal: #2c2c2c;
+      --charcoal-light: #3f3f3f;
+      --white: #ffffff;
+      --shadow-sm: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ----- UTILITIES ----- */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 1.2rem;
+      color: var(--charcoal);
+      font-weight: 400;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border-radius: 40px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--gold);
+      color: var(--white);
+    }
+
+    .btn-light {
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      color: var(--white);
+    }
+
+    .btn-light:hover {
+      background-color: var(--white);
+      color: var(--charcoal);
+      border-color: var(--white);
+    }
+
+    /* ----- HEADER / NAV ----- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.2rem 0;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+      background-color: rgba(251, 247, 240, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .site-header.scrolled {
+      background-color: rgba(251, 247, 240, 0.98);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+      padding: 0.8rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--gold);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      margin-left: 1rem;
+    }
+
+    .nav-cta .btn-primary {
+      padding: 0.7rem 1.8rem;
+      font-size: 0.75rem;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background-color: var(--charcoal);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--ivory-light);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 2rem;
+        transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 1002;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .nav-cta {
+        margin-left: 0;
+      }
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 0 5rem;
+      background: linear-gradient(145deg, rgba(30, 25, 20, 0.55) 0%, rgba(30, 25, 20, 0.35) 100%),
+                  url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+      /* Hero image: elegant event table with florals — stock placeholder */
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 0 2rem;
+      color: var(--white);
+      animation: fadeUp 1.2s ease-out;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.8rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      font-weight: 300;
+      max-width: 680px;
+      margin: 0 auto 2.8rem;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ----- ABOUT SECTION ----- */
+    .about {
+      padding: 7rem 0;
+      background-color: var(--ivory);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: #4a4a4a;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    /* ----- SERVICES SECTION ----- */
+    .services {
+      padding: 7rem 0;
+      background-color: var(--ivory-light);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-image {
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.05);
+    }
+
+    .service-content {
+      padding: 2rem 1.8rem 2.2rem;
+      flex: 1;
+    }
+
+    .service-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--charcoal);
+    }
+
+    .service-content p {
+      color: #5a5a5a;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ----- GALLERY SECTION ----- */
+    .gallery {
+      padding: 7rem 0;
+      background-color: var(--ivory);
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      grid-auto-rows: 240px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: var(--champagne);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+      z-index: 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease, filter 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.92);
+    }
+
+    /* Make some items span two columns/rows for visual interest */
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+      }
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+    }
+
+    /* ----- ENQUIRY SECTION ----- */
+    .enquiry {
+      padding: 7rem 0;
+      background: linear-gradient(135deg, #2c2c2c 0%, #3f3a35 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .enquiry .container {
+      max-width: 900px;
+    }
+
+    .enquiry h2 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      margin-bottom: 1.2rem;
+      color: var(--white);
+    }
+
+    .enquiry p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2.8rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .enquiry-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      border-color: #25D366;
+      color: var(--white);
+    }
+
+    .whatsapp-btn:hover {
+      background-color: transparent;
+      color: #25D366;
+      border-color: #25D366;
+    }
+
+    .contact-placeholder {
+      font-size: 0.85rem;
+      color: var(--gold-soft);
+      margin-top: 2rem;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+    }
+
+    .contact-placeholder span {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin: 0 0.25rem;
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+
+    /* ----- FOOTER ----- */
+    .site-footer {
+      background-color: #1e1c1a;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 4rem 0 2.5rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      max-width: 280px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-links h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+      color: var(--gold-soft);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-soft);
+    }
+
+    .footer-contact p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-contact .placeholder {
+      color: var(--gold-soft);
+      font-style: italic;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+
+    /* ----- ACCESSIBILITY & FOCUS ----- */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#" class="logo">EverDream <span>Creations</span> & Decor</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta"><a href="#contact" class="btn btn-primary">Enquire Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Creating Beautiful Moments,<br>One Event at a Time.</h1>
+        <p>EverDream Creations & Decor brings refined elegance to every celebration — from intimate gatherings to grand matric farewells, styled with heart in Gqeberha.</p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">Explore Our Services</a>
+          <a href="#contact" class="btn btn-light">Make an Enquiry</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <p class="section-subtitle">Our Story</p>
+          <h2 class="section-title">Designed with Intention,<br>Styled with Grace</h2>
+          <p>EverDream Creations & Decor is a Gqeberha-based event décor business passionate about transforming spaces into unforgettable experiences. We specialise in creating refined, personalised environments that reflect the spirit of your occasion.</p>
+          <p>From the first sketch to the final bloom, we pay meticulous attention to detail — balancing texture, light, and tone to craft settings that feel both elevated and warmly inviting. Whether you're celebrating a milestone, a matric farewell, or a special gathering, we bring your vision to life with elegance and care.</p>
+          <p><em>Note: This is a concept website. Business owner background and history are intentionally omitted to avoid assumptions.</em></p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1478146059778-26028b07395a?q=80&w=1587&auto=format&fit=crop" alt="Elegant event table setting with floral centrepiece and soft candlelight" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="services-header">
+          <p class="section-subtitle">What We Offer</p>
+          <h2 class="section-title">Crafted for Every Occasion</h2>
+        </div>
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1740&auto=format&fit=crop" alt="Elegant event décor and table styling" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3>Event Décor & Styling</h3>
+              <p>Full-scale décor design and styling for weddings, celebrations, and corporate events — from tablescapes to floral installations and lighting.</p>
+            </div>
+          </div>
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1740&auto=format&fit=crop" alt="Matric farewell décor with elegant balloons and backdrop" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3>Matric Farewell Décor</h3>
+              <p>Stylish, age-appropriate décor and tailored packages for matric farewells — creating a sophisticated and memorable send-off.</p>
+            </div>
+          </div>
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1740&auto=format&fit=crop" alt="Birthday celebration décor with balloons and table setting" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3>Special Occasion Décor</h3>
+              <p>Birthdays, anniversaries, baby showers, and intimate gatherings — beautifully styled with a personal touch to suit your theme.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div class="gallery-header">
+          <p class="section-subtitle">Visual Inspiration</p>
+          <h2 class="section-title">A Glimpse of Our Aesthetic</h2>
+          <p style="max-width: 600px; margin: 0 auto; color: #5a5a5a; font-size: 0.95rem;">Illustrative stock photography — not actual EverDream work. A curated moodboard of the elegance we strive for.</p>
+        </div>
+        <div class="gallery-grid">
+          <!-- Gallery items — all placeholder stock, clearly not claimed as real work -->
+          <div class="gallery-item wide">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: elegant floral table arrangement" loading="lazy">
+          </div>
+          <div class="gallery-item tall">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: luxurious event table with candles" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1478146059778-26028b07395a?q=80&w=1587&auto=format&fit=crop" alt="Placeholder: elegant place setting with gold cutlery" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: matric farewell backdrop with balloons" loading="lazy">
+          </div>
+          <div class="gallery-item wide">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: birthday celebration décor with balloons and table" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: luxury event styling with florals" loading="lazy">
+          </div>
+          <div class="gallery-item tall">
+            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: elegant candle and floral table setting" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1740&auto=format&fit=crop" alt="Placeholder: refined event seating with soft drapery" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENQUIRY / CONTACT -->
+    <section id="contact" class="enquiry">
+      <div class="container">
+        <p class="section-subtitle" style="color: var(--gold-soft);">Let’s Create Together</p>
+        <h2>Ready to Bring Your Vision to Life?</h2>
+        <p>Reach out to discuss your event, styling ideas, and how EverDream Creations & Decor can make your occasion unforgettable.</p>
+        <div class="enquiry-buttons">
+          <!-- WhatsApp placeholder: number clearly marked as placeholder -->
+          <a href="https://wa.me/27000000000?text=Hi%20EverDream%2C%20I%27d%20like%20to%20enquire%20about%20event%20d%C3%A9cor." 
+             class="btn whatsapp-btn" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="WhatsApp enquiry (placeholder number)">
+            WhatsApp Enquiry
+          </a>
+          <a href="mailto:hello@everdream.co.za" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Email Us</a>
+        </div>
+        <div class="contact-placeholder">
+          <span>WhatsApp: +27 (0)00 000 0000 — placeholder</span>
+          <span>Email: hello@everdream.co.za — placeholder</span>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6; letter-spacing: 0.05em;">Please replace with actual business contact details before publishing.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>EverDream Creations & Decor</h3>
+          <p>Premium event décor and styling, based in Gqeberha, South Africa. Creating beautiful moments, one event at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Enquire</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p class="placeholder">WhatsApp: +27 (0)00 000 0000</p>
+          <p class="placeholder">Email: hello@everdream.co.za</p>
+          <p>Gqeberha, Eastern Cape</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 EverDream Creations & Decor — Concept website for demonstration purposes. All imagery is illustrative stock photography.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    (function() {
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+          this.setAttribute('aria-expanded', expanded);
+          this.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Sticky header effect
+      const header = document.getElementById('siteHeader');
+      if (header) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 60) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      }
+
+      // Smooth scroll for older browsers that don't support scroll-behavior
+      if (!('scrollBehavior' in document.documentElement.style)) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      }
+
+      // Simple image loading fade (optional — images already loaded natively with lazy)
+      // Not necessary but adds a tiny refinement
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('load', function() {
+          this.style.opacity = '1';
+        });
+        // in case image is already cached and load event fired before listener
+        if (img.complete) {
+          img.style.opacity = '1';
+        } else {
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.5s ease';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
